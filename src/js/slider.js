@@ -28,7 +28,7 @@ function init(delayTime) {
     aEle[i].style.transform = "rotateY(" + angle + "deg) translateZ(" + radius + "px)";
     aEle[i].style.transition = "none";  // Убираем анимацию
     // Применяем фильтр ко всем элементам, кроме центрального
-    aEle[i].style.filter = 'brightness(50%)';
+    aEle[i].style.opacity = '1';
   }
 }
 // Вызываем функцию инициализации после задержки
@@ -107,9 +107,10 @@ function rotateCarousel(index) {
     ele.style.transform = `rotateY(${(i - index) * (360 / aEle.length)}deg) translateZ(${radius}px)`;
     // Если это текущий элемент (центральная карточка), убираем фильтр
     if (i === index) {
-      ele.style.filter = 'none';  // Убираем фильтр с текущего элемента
+      ele.style.opacity = '1';  // Убираем фильтр с текущего элемента
     } else {
-      ele.style.filter = 'brightness(60%)';  // Применяем фильтр ко всем остальным
+      ele.style.opacity = '1';
+      ele.style.filter = 'brightness(100%);'  // Применяем фильтр ко всем остальным
     }
   });
   currentRotationIndex = index; // Обновляем текущий индекс
