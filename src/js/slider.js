@@ -1,14 +1,11 @@
-var radius = 380; // Размер радиуса
+var radius = 380; // Размер радиуса 
 var autoRotate = false; // Отключаем автоматическое вращение по умолчанию
-var rotateSpeed = -60; // скорость вращения
 var imgWidth = 303;
 var imgHeight = 215; // Высота изображений
-
 let autoSpinInterval;  // Интервал для автоматической прокрутки
 let currentRotationIndex = 0;  // Индекс текущего положения карусели
-
 var odrag = document.getElementById('drag-container');
-var ospin = document.getElementById('spin-container');
+var ospin = document.getElementById('spin-container'); 
 var aImg = ospin.getElementsByTagName('img');
 var aVid = ospin.getElementsByTagName('video');
 var aEle = [...aImg, ...aVid]; // объединить 2 массива
@@ -25,15 +22,15 @@ ground.style.height = radius * 3 + "px";
 // Функция инициализации с настройкой начальной позиции второго изображения
 function init(delayTime) {
   var startIndex = 1; // Начинаем с второго изображения (index 1)
-
   for (var i = 0; i < aEle.length; i++) {
     // Вычисляем угол для каждого элемента
     var angle = (i + startIndex) * (360 / aEle.length);
     aEle[i].style.transform = "rotateY(" + angle + "deg) translateZ(" + radius + "px)";
     aEle[i].style.transition = "none";  // Убираем анимацию
+    // Применяем фильтр ко всем элементам, кроме центрального
+    aEle[i].style.filter = 'brightness(50%)';
   }
 }
-
 // Вызываем функцию инициализации после задержки
 setTimeout(init, 1000);
 
@@ -44,7 +41,6 @@ document.onpointerdown = function (e) {
   e = e || window.event;
   sX = e.clientX;
   sY = e.clientY;
-
   this.onpointermove = function (e) {
     e = e || window.event;
     nX = e.clientX;
@@ -53,6 +49,11 @@ document.onpointerdown = function (e) {
     desY = nY - sY;
     tX += desX * 0.1;
     tY += desY * 0.1;
+
+    // Ограничение вращения по оси X (вертикальная ось) на 60 градусов
+    if (tY > 30) tY = 30;
+    if (tY < 0) tY = 0;
+
     applyTranform(odrag);
     sX = nX;
     sY = nY;
@@ -64,6 +65,11 @@ document.onpointerdown = function (e) {
       desY *= 0.95;
       tX += desX * 0.1;
       tY += desY * 0.1;
+
+      // Ограничение вращения по оси X (вертикальная ось) на 60 градусов
+      if (tY > 60) tY = 60;
+      if (tY < 0) tY = 0;
+
       applyTranform(odrag);
       playSpin(false);
       if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
@@ -73,13 +79,10 @@ document.onpointerdown = function (e) {
     }, 17);
     this.onpointermove = this.onpointerup = null;
   };
-
   return false;
 };
 
 function applyTranform(obj) {
-  if (tY > 180) tY = 180;
-  if (tY < 0) tY = 0;
   obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
 }
 
@@ -102,21 +105,23 @@ function rotateCarousel(index) {
     // Применяем вращение для каждого элемента по углу
     ele.style.transition = 'transform 1s';
     ele.style.transform = `rotateY(${(i - index) * (360 / aEle.length)}deg) translateZ(${radius}px)`;
+    // Если это текущий элемент (центральная карточка), убираем фильтр
+    if (i === index) {
+      ele.style.filter = 'none';  // Убираем фильтр с текущего элемента
+    } else {
+      ele.style.filter = 'brightness(60%)';  // Применяем фильтр ко всем остальным
+    }
   });
-
   currentRotationIndex = index; // Обновляем текущий индекс
-
   // После клика запускаем автоматическую прокрутку
   startAutoRotate();
 }
 
-// Вспомогательная функция для смены текущего индекса и переключения
-function changeCarouselIndex(delta) {
-  var newIndex = currentRotationIndex + delta;
-  if (newIndex < 0) {
-    newIndex = aEle.length - 1; // Переключаем на последний элемент
-  } else if (newIndex >= aEle.length) {
-    newIndex = 0; // Переключаем на первый элемент
+// Вспомогательная функция для смены текущего индекса и переключения (по часовой стрелке)
+function changeCarouselIndex() {
+  var newIndex = currentRotationIndex + 1; // Сдвигаем вправо (по часовой стрелке)
+  if (newIndex >= aEle.length) {
+    newIndex = 0; // Переключаем на первый элемент, если индекс выходит за пределы
   }
   rotateCarousel(newIndex); // Вращаем карусель на новый индекс
 }
@@ -127,10 +132,9 @@ function startAutoRotate() {
   if (autoSpinInterval) {
     clearInterval(autoSpinInterval);
   }
-
   // Запускаем новый интервал для автоматической прокрутки
   autoSpinInterval = setInterval(() => {
-    changeCarouselIndex(1); // Переход на следующий элемент
+    changeCarouselIndex(); // Переход на следующий элемент
   }, 3000); // Переход каждую секунду
 }
 
@@ -140,6 +144,3 @@ function stopAutoRotate() {
     clearInterval(autoSpinInterval);
   }
 }
-
-// Пример: автоматически прокручиваем карусель, пока не будет остановлено вручную
-// Убираем авто-прокрутку по умолчанию, только после клика она начинается

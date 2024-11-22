@@ -1,4 +1,6 @@
 .menu-btns {
+  display: flex;
+  justify-content: space-between;
   width: 1100px;
   margin: 0 auto;
   animation: textUp ease-in 0.3s;
@@ -26,7 +28,7 @@
       font-size: 20px; /* Увеличение шрифта при наведении */
     }
     .reflection {
-      top: 175%;
+      top: 130%;
       animation: fadeIn ease 0.5s;
       opacity: 1; /* Установка прозрачности отражения */
   }
