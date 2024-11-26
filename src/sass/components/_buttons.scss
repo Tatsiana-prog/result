@@ -10,8 +10,8 @@
 
 .btn {
   position: relative;
-  display: inline-block;
-  padding: 10px 5px; /* Добавим фиксированный отступ  */
+  display: block;
+  padding: 10px 15px; /* Добавим фиксированный отступ  */
   font-size: 15px;
   cursor: pointer;
   text-align: center;
@@ -21,7 +21,7 @@
   }
 }
 .btn:hover, .btn:active, .btn.active {
-  padding: 5px 15px;
+  padding: 10px 10px;
   animation: fadeIn ease-in 0.7s;
   .main-text {
       color: rgba(55, 119, 157, 1);
@@ -75,7 +75,7 @@
   cursor: pointer;
   z-index: 2000;
   position: relative;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 //Button
 .card {

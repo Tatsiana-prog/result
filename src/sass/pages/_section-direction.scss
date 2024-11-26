@@ -99,8 +99,8 @@ $colorBg: #222a30;
 $colorOutline: #ffffff;
 $colorOutlineFade: #4e5559;
 
-$widthMouse: 52px;
-$heightMouse: 88px;
+$widthMouse: 42px;
+$heightMouse: 68px;
 $borderMouse: 6px;
 
 $posMouse: 8px;
@@ -124,7 +124,7 @@ $animDuration: 5s;
 }
 .mouse-wrapper {
   position: absolute;
-  top:50%;
+  top:10%;
   right: 0;
   opacity: 0;
 }

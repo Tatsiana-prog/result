@@ -180,8 +180,8 @@ section {
 
 .btn {
   position: relative;
-  display: inline-block;
-  padding: 10px 5px; /* Добавим фиксированный отступ  */
+  display: block;
+  padding: 10px 15px; /* Добавим фиксированный отступ  */
   font-size: 15px;
   cursor: pointer;
   text-align: center;
@@ -191,7 +191,7 @@ section {
 }
 
 .btn:hover, .btn:active, .btn.active {
-  padding: 5px 15px;
+  padding: 10px 10px;
   animation: fadeIn ease-in 0.7s;
 }
 .btn:hover .main-text, .btn:active .main-text, .btn.active .main-text {
@@ -245,7 +245,7 @@ section {
   cursor: pointer;
   z-index: 2000;
   position: relative;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .card {
@@ -361,7 +361,7 @@ section {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   position: absolute;
-  left: 0;
+  left: 10%;
   top: 0;
   width: 80%;
   height: 80%;
@@ -369,6 +369,8 @@ section {
   font-size: 50px;
   text-align: center;
   border-radius: 4px;
+  opacity: 0.9;
+  margin-top: -64px;
 }
 
 #drag-container p {
@@ -494,7 +496,7 @@ section {
 
 .mouse-wrapper {
   position: absolute;
-  top: 50%;
+  top: 10%;
   right: 0;
   opacity: 0;
 }
@@ -502,8 +504,8 @@ section {
 .mouse {
   position: relative;
   background: #4e5559 linear-gradient(transparent 0%, transparent 50%, #ffffff 50%, #ffffff 100%);
-  width: 52px;
-  height: 88px;
+  width: 42px;
+  height: 68px;
   border-radius: 100px;
   background-size: 100% 200%;
   animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
@@ -518,8 +520,8 @@ section {
   margin: auto;
 }
 .mouse:before {
-  width: 46px;
-  height: 82px;
+  width: 36px;
+  height: 62px;
   background-color: #222a30;
   border-radius: 100px;
 }
