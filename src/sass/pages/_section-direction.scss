@@ -1,6 +1,10 @@
 .section-direction {
   padding: 100px 0;
 }
+
+.direction {
+  
+}
 .direction-row {
   display: flex;
   justify-content: center;
@@ -8,6 +12,7 @@
 }
 
 .direction-box {
+ 
   position: relative;
   width: 1100px;
   margin: 0 auto;
@@ -34,6 +39,7 @@
 .direction-desc {
   width: 100%;
   margin: 0 auto;
+  margin-top: 700px;
 }
 .direction-boxes {
   position: relative;
