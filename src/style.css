@@ -347,7 +347,7 @@ section {
 
 .slider3d {
   position: relative;
-  width: 344px;
+  width: 314px;
   perspective: 800px;
 }
 
@@ -395,14 +395,14 @@ section {
 */
 .slider3d {
   position: absolute;
-  top: 200px;
+  top: 294px;
   bottom: 25vmin;
   right: 0;
   left: 0;
   margin: auto;
   user-select: none;
-  transform: rotate(-15deg);
-  perspective-origin: 50% 150%;
+  width: 350px;
+  perspective-origin: 50% -10%;
   transition: perspective-origin 0.5s, perspective 0.5s;
   cursor: pointer;
 }
@@ -415,9 +415,8 @@ section {
   background-position: center;
   background-repeat: no-repeat;
   cursor: default;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  opacity: 0.9;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
   cursor: pointer;
 }
 
@@ -527,7 +526,8 @@ input::selection {
   width: 314px;
   height: 296px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 4px;
+  opacity: 0.9;
 }
 
 .section-direction {
