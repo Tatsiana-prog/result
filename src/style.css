@@ -523,8 +523,8 @@ input::selection {
 }
 */
 .slider3d_wrap img {
-  width: 314px;
-  height: 296px;
+  width: 310px;
+  height: 214px;
   object-fit: cover;
   border-radius: 4px;
   opacity: 0.9;
