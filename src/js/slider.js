@@ -9,7 +9,7 @@ function createSlider3d() {
     const gCS = window.getComputedStyle(slider);
     const width = parseInt(gCS.width);
     slideWidth = width / all;
-    const myR = width / (2 * Math.tan(Math.PI / all));
+    const myR = (width / (2 * Math.tan(Math.PI / all))) *0.95;
     const step = 360 / all;
     let angle = 0;
 
