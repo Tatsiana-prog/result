@@ -1,3 +1,4 @@
+
 .menu-btns {
   display: flex;
   justify-content: space-between;
@@ -15,23 +16,29 @@
   font-size: 15px;
   cursor: pointer;
   text-align: center;
-  //transition: all 0.7s ease; /* Плавный переход для цвета и трансформации */
-  &:last-child {
-    margin-right: 0;
-  }
 }
-.btn:hover, .btn:active, .btn.active {
+.btn:last-child {
+  margin-right: 0;
+}
+
+.btn:hover,
+.btn:active,
+.btn.active {
   padding: 10px 10px;
   animation: fadeIn ease-in 0.7s;
-  .main-text {
-      color: rgba(55, 119, 157, 1);
-      font-size: 20px; /* Увеличение шрифта при наведении */
-    }
-    .reflection {
-      top: 130%;
-      animation: fadeIn ease 0.5s;
-      opacity: 1; /* Установка прозрачности отражения */
-  }
+}
+.btn:hover .main-text,
+.btn:active .main-text,
+.btn.active .main-text {
+  color: rgb(55, 119, 157);
+  font-size: 20px; /* Увеличение шрифта при наведении */
+}
+.btn:hover .reflection,
+.btn:active .reflection,
+.btn.active .reflection {
+  top: 130%;
+  animation: fadeIn ease 0.5s;
+  opacity: 1; /* Установка прозрачности отражения */
 }
 
 .btn .main-text {
@@ -55,162 +62,17 @@
   line-height: 26px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  background: linear-gradient(0deg, #37779D, #37779D),
-  linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  background: linear-gradient(0deg, #37779d, #37779d),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 0; /* Изначально скрыто */
   filter: blur(2px);
   transition: all 0.3s ease; /* Плавный переход для прозрачности и размытия */
 }
+
 .description-button {
-  width:300px;
+  width: 300px;
   height: 50px;
   margin: 0 auto;
-}
-
-.card-wrap {
-  perspective: 250px;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  z-index: 2000;
-  position: relative;
-  margin-top: 5px;
-}
-//Button
-.card {
-  position: relative;
-  width: 300px !important;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  padding: 17px;
-
-  height: 51px;
-  overflow: hidden;
-  border-radius: 4px;
-  transition: transform 0.5s ease-out;
-  z-index: 1;
-  color: #fff;
-  cursor: pointer;
-  box-sizing: border-box;
-  border: 1px solid transparent;
-  background: linear-gradient(rgba(144, 15, 55, 1), rgba(144, 15, 55, 1))
-      padding-box,
-    linear-gradient(
-        90deg,
-        rgba(232, 232, 232, 1),
-        rgba(177, 177, 177, 1) 19%,
-        rgba(232, 232, 232, 1) 50%,
-        rgba(164, 164, 164, 1) 76%,
-        rgba(232, 232, 232, 1)
-      )
-      border-box;
-  background-clip: padding-box, border-box;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backface-visibility: hidden;
-}
-
-.card.fast-click {
-  background: #590620;
-  box-shadow: inset -2px -2px 8px 0 rgba(0, 0, 0, 0.5),
-    inset 2px 2px 8px 0 rgba(0, 0, 0, 0.5);
-  border: 1px solid transparent;
-  background: linear-gradient(#590620, #590620) padding-box,
-    linear-gradient(
-        90deg,
-        rgba(232, 232, 232, 1),
-        rgba(177, 177, 177, 1) 19%,
-        rgba(232, 232, 232, 1) 50%,
-        rgba(164, 164, 164, 1) 76%,
-        rgba(232, 232, 232, 1)
-      )
-      border-box;
-}
-
-.card-content span.fast-click {
-  transform: scale(0.97);
-  transition: all 0.2s ease;
-}
-
-.card:active span.fast-click {
-  transform: scale(0.97);
-  transition: all 0.2s ease;
-}
-.card:active span {
-  transform: scale(0.97);
-  transition: all 0.2s ease;
-}
-
-.card::before {
-  background: radial-gradient(
-    250px circle at var(--mouse-x) var(--mouse-y),
-    #c7c7c738,
-    transparent 30%
-  );
-  border-radius: inherit;
-  content: "";
-  height: 100%;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 300ms ease;
-  z-index: 20;
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-.card:active {
-  background: #590620;
-  box-shadow: inset -2px -2px 8px 0 rgba(0, 0, 0, 0.5),
-    inset 2px 2px 8px 0 rgba(0, 0, 0, 0.5);
-  border: 1px solid transparent;
-  background: linear-gradient(#590620, #590620) padding-box,
-    linear-gradient(
-        90deg,
-        rgba(232, 232, 232, 1),
-        rgba(177, 177, 177, 1) 19%,
-        rgba(232, 232, 232, 1) 50%,
-        rgba(164, 164, 164, 1) 76%,
-        rgba(232, 232, 232, 1)
-      )
-      border-box;
-}
-.card-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-.card-content span {
-  font-family: "ST-SimpleSquare";
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 110%;
-  letter-spacing: 0.06em;
-  text-align: center;
-  background: linear-gradient(
-    140deg,
-    #727272 0%,
-    #b1b1b1 19%,
-    #e8e8e8 50%,
-    #a4a4a4 76%,
-    #424242 100%
-  );
-  background-clip: text;
-  will-change: transform;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  backface-visibility: hidden;
-
-  transition: none;
-  transform: translateZ(0);
-  will-change: transform;
 }
