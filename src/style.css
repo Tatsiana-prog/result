@@ -446,7 +446,7 @@ section {
   user-select: none;
   width: 300px;
   perspective-origin: 60% 41%;
-  transform: rotate(90deg);*/
+  transform: rotate(90deg);
  cursor: pointer;
 }
 
@@ -621,33 +621,30 @@ section {
   width: 119.6px;
   height: 760px;
   transform: rotateY(-35deg);
-  background: rgba(28, 27, 27, 0.5); 
+  background: rgba(28, 27, 27, 0.8); 
   box-sizing: border-box;
-  border: 0.5px solid  #494949;
+  border: 1px solid  #494949;
   border-image: linear-gradient(180deg, #494949 0%, rgba(73, 73, 73, 0) 100%);
-  background:linear-gradient(to left, #494949 0%, rgba(73, 73, 73, 0) 100%);
+  background: rgba(28, 27, 27, 0.5);
+  backdrop-filter: blur(2.5px);
+  /*background:linear-gradient(to left, #494949 0%, rgba(73, 73, 73, 0) 100%);**/
   border-radius: 6px;
+  overflow: hidden;
 }
 
-.cuboid::before {
-  position: absolute;
-  content: "";
-  width: 117.6px;
-  height: 758px;
- /* transform: rotateY(-35deg);*/
-  background: rgba(28, 27, 27, 0.5);
-  box-sizing: border-box;
- 
-  backdrop-filter: blur(5px);
-}
+
+
+
+
+
 
 
 .cuboid__side {
   position: absolute;
   background-color: var(--shade-one);
- 
   box-sizing: border-box;
 }
+
 
 
 
@@ -716,6 +713,8 @@ section {
   /*border: 1px solid blueviolet;*/
 }
 
+
+
 .cuboid img {
   position: absolute;
   top:30px;
@@ -727,4 +726,82 @@ section {
 }
 .extrusion {
   
+}
+#img1::after {
+  content: "";
+  position: absolute;
+  left: 120%;
+  width: 150px;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 0 150px rgba(132, 132, 132, 1);
+}
+
+#img2::after {
+  content: "";
+  position: absolute;
+  left: 120%;
+  width: 150px;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 0 150px rgba(55, 119, 157, 1);
+}
+
+#img3::after {
+  content: "";
+  position: absolute;
+  left: 120%;
+  width: 150px;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 0 150px rgba(144, 15, 55, 1);
+}
+
+#img4::after {
+  content: "";
+  position: absolute;
+  left: 120%;
+  width: 150px;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 0 150px rgba(132, 132, 132, 1);
+}
+
+#img5::after {
+  content: "";
+  position: absolute;
+  left: 120%;
+  width: 150px;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 0 150px rgba(55, 119, 157, 1);
+}
+
+#img6::after {
+  content: "";
+  position: absolute;
+  left: 120%;
+  width: 150px;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 0 150px rgba(144, 15, 55, 1);
+}
+
+#img7::after {
+  content: "";
+  position: absolute;
+  left: 120%;
+  width: 150px;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 0 150px rgba(132, 132, 132, 1);
+}
+#img8::after {
+  content: "";
+  position: absolute;
+  left: 120%;
+  width: 150px;
+  height: 600px;
+  overflow: hidden;
+  box-shadow: 0 0 150px rgba(55, 119, 157, 1);
 }
