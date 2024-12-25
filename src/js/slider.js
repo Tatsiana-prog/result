@@ -59,8 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
         previousTime = currentTime;
         previousY = e.clientY;
-  
-      
       }
     };
   
@@ -142,8 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
         const slide = wrap.children[i];
   
-        const opacity = Math.max(1 - angleDiff / 180, 0.4);
+        const opacity = Math.max(1 - angleDiff / 180, 1);
         slide.style.opacity = opacity;
+        slide.style.background = "red";
       }
     }
   
@@ -173,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const gCS = window.getComputedStyle(document.querySelector(".slider3d"));
       const width = parseInt(gCS.width);
       slideWidth = width / all;
-      const myR = (width / (2 * Math.tan(Math.PI / all))) * 0.35;
+      const myR = (width / (2 * Math.tan(Math.PI / all))) * 0.31;
       const step = 360 / all;
   
       for (let i = 0; i < all; i++) {

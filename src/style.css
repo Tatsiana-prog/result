@@ -420,7 +420,7 @@ section {
   max-width: 300px;
   width: 100%;
 
-  perspective: 800px;
+  perspective: 2300px;
 }
 
 .slider3d_wrap {
@@ -627,28 +627,72 @@ section {
   position: relative;
   width: 119.6px;
   height: 760px;
-  transform: rotateY(-55deg);
+  transform: rotateY(-40deg);
   background: rgba(28, 27, 27, 0.7);
   box-sizing: border-box;
   border: 1px solid  #464444;
-   backdrop-filter: blur(2.5px);
+  backdrop-filter: blur(2.5px);
   border-radius: 6px;
-  overflow: hidden;
-
- 
+  overflow: hidden; 
 }
-
-
-
-
-
-
-
 
 .cuboid__side {
   position: absolute;
   background-color: var(--shade-one);
   box-sizing: border-box;
+}
+.cuboid__side:nth-of-type(1) {
+  height: calc(var(--thickness) * 3vmin);
+  width: 100%;
+  top: 0;
+  transform: translate(0, -50%) rotateX(90deg);
+  background: var(--shade-one);
+  
+}
+
+.cuboid__side:nth-of-type(2) {
+  height: 100%;
+  width: calc(var(--thickness) * 3vmin);
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%) rotateY(90deg);
+  background: var(--shade-two);
+}
+
+.cuboid__side:nth-of-type(3) {
+  height: calc(var(--thickness) * 3vmin);
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+  transform: translate(0%, 50%) rotateX(90deg);
+  background-image: var(--shade-two);
+}
+
+.cuboid__side:nth-of-type(4) {
+  height: 100%;
+  width: calc(var(--thickness) * 3vmin);
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%) rotateY(90deg);
+  background: var(--shade-two);
+}
+
+.cuboid__side:nth-of-type(5) {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: translate3d(0, 0, calc(var(--thickness) * 3vmin));
+}
+
+.cuboid__side:nth-of-type(6) {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: translate3d(0, 0, calc(var(--thickness) * -0.5vmin))
+    rotateY(180deg);
+  background: var(--shade-one);
 }
 
 
@@ -758,7 +802,7 @@ section {
   width: 150px;
   height: 600px;
   overflow: hidden;
-  box-shadow: 0 0 150px rgba(144, 15, 55, 0.8);
+  box-shadow: 0 0 150px rgba(11, 6, 7, 0.6);
 }
 
 #img4::after {
@@ -788,7 +832,7 @@ section {
   width: 150px;
   height: 600px;
   overflow: hidden;
-  box-shadow: 0 0 150px rgba(144, 15, 55, 0.8);
+  box-shadow: 0 0 150px rgba(144, 15, 55, 0.6);
 }
 
 #img7::after {
@@ -810,5 +854,9 @@ section {
   box-shadow: 0 0 150px rgba(55, 119, 157, 0.8);
 }
 .slider3d_wrap > div {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Добавьте тень блока для создания эффекта толщины */
+  
+}
+
+.extrusion {
+  
 }
